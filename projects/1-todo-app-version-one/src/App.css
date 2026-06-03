@@ -1,0 +1,21 @@
+h1{
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+input{
+  width: 100%;
+}
+
+.leftText{
+  text-align: left;
+}
+
+.btn1{
+  width: 100%;
+}
+
+.space{
+  margin-bottom: 20px;
+}
