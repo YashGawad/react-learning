@@ -45,52 +45,7 @@ const Sidebar = () => {
             >
               <use xlink:href="#speedometer2"></use>
             </svg>
-            Dashboard
-          </a>{" "}
-        </li>{" "}
-        <li>
-          {" "}
-          <a href="#" class="nav-link text-white">
-            {" "}
-            <svg
-              class="bi pe-none me-2"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <use xlink:href="#table"></use>
-            </svg>
-            Orders
-          </a>{" "}
-        </li>{" "}
-        <li>
-          {" "}
-          <a href="#" class="nav-link text-white">
-            {" "}
-            <svg
-              class="bi pe-none me-2"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <use xlink:href="#grid"></use>
-            </svg>
-            Products
-          </a>{" "}
-        </li>{" "}
-        <li>
-          {" "}
-          <a href="#" class="nav-link text-white">
-            {" "}
-            <svg
-              class="bi pe-none me-2"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <use xlink:href="#people-circle"></use>
-            </svg>
-            Customers
+            Create Post
           </a>{" "}
         </li>{" "}
       </ul>{" "}
