@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -7,13 +8,13 @@ import CreatePost from "./components/CreatePost";
 import PostList from "./components/PostList";
 
 function App() {
+  const [page, setPage] = useState("Home");
   return (
     <div className="app-container">
-      <Sidebar></Sidebar>
+      <Sidebar page={page}></Sidebar>
       <div className="content">
         <Header></Header>
-        <CreatePost></CreatePost>
-        <PostList></PostList>
+        {page === "Home" ? <PostList></PostList> : <CreatePost></CreatePost>}
         <Footer></Footer>
       </div>
     </div>
