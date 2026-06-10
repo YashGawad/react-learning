@@ -1,4 +1,5 @@
-const Sidebar = ({ page }) => {
+const Sidebar = ({ page, setPage }) => {
+
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -23,7 +24,7 @@ const Sidebar = ({ page }) => {
       <hr />{" "}
       <ul className="nav nav-pills flex-column mb-auto">
         {" "}
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => setPage("Home")}>
           {" "}
           <a
             href="#"
@@ -42,7 +43,7 @@ const Sidebar = ({ page }) => {
             Home
           </a>{" "}
         </li>{" "}
-        <li>
+        <li onClick={() => setPage("Create Post")}>
           {" "}
           <a
             href="#"

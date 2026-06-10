@@ -6,18 +6,21 @@ import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import CreatePost from "./components/CreatePost";
 import PostList from "./components/PostList";
+import PostListProvider from "./components/store/post-list-store";
 
 function App() {
   const [page, setPage] = useState("Home");
   return (
-    <div className="app-container">
-      <Sidebar page={page}></Sidebar>
-      <div className="content">
-        <Header></Header>
-        {page === "Home" ? <PostList></PostList> : <CreatePost></CreatePost>}
-        <Footer></Footer>
+    <PostListProvider>
+      <div className="app-container">
+        <Sidebar page={page} setPage={setPage}></Sidebar>
+        <div className="content">
+          <Header></Header>
+          {page === "Home" ? <PostList></PostList> : <CreatePost></CreatePost>}
+          <Footer></Footer>
+        </div>
       </div>
-    </div>
+    </PostListProvider>
   );
 }
 
