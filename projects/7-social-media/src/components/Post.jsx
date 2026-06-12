@@ -1,12 +1,25 @@
-const Post = () => {
+import { MdDelete } from "react-icons/md";
+
+const Post = ({ post }) => {
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card post-card" style={{ width: "30rem" }}>
+      <h5>
+        {post.title}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <MdDelete />
+        </span>
+      </h5>
       <img src="..." className="card-img-top" alt="..." />
       <div className="card-body">
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card’s content.
-        </p>
+        <p className="card-text">{post.body}</p>
+        {post.tags.map((tag) => (
+          <span className="badge text-bg-primary hashtag" key={tag}>
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div className="alert alert-success" role="alert">
+        This post is reacted by {post.reactions} people
       </div>
     </div>
   );
