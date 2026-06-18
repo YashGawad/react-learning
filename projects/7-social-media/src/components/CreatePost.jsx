@@ -2,8 +2,7 @@ import { useContext, useRef } from "react";
 import { PostList } from "./store/post-list-store";
 
 const CreatePost = () => {
-
-  const {addPost} = useContext(PostList);
+  const { addPost } = useContext(PostList);
 
   const userIdElement = useRef();
   const postTitleElement = useRef();
@@ -13,14 +12,15 @@ const CreatePost = () => {
 
   const handleOnSubmit = () => {
     event.preventDefault();
+    const id = Date.now();
     const userId = userIdElement.current.value;
     const postTitle = postTitleElement.current.value;
     const postBody = postBodyElement.current.value;
     const reactions = reactionsElement.current.value;
-    const tags = tagsElement.current.value.split(/(\s+)/);
-    
-    addPost(userId,postTitle,postBody,reactions,tags);
-  }
+    const tags = tagsElement.current.value.split(" ");
+
+    addPost(id, userId, postTitle, postBody, reactions, tags);
+  };
 
   return (
     <form className="create-post" onSubmit={handleOnSubmit}>

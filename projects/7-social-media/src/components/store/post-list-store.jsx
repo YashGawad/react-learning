@@ -29,18 +29,19 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST,
   );
 
-  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+  const addPost = (id, userId, title, body, reactions, tags) => {
     dispatchPostList({
       type: "ADD_POST",
       payload: {
+        id,
         userId,
-        postTitle,
-        postBody,
+        title,
+        body,
         reactions,
         tags,
       },
     });
-    console.log(`${userId} ${postTitle} ${postBody} ${reactions} ${tags}`);
+    console.log(`${id} ${userId} ${title} ${body} ${reactions} ${tags}`);
   };
 
   const deletePost = (postId) => {
