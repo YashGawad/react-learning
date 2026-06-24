@@ -41,7 +41,6 @@ const PostListProvider = ({ children }) => {
         tags,
       },
     });
-    console.log(`${id} ${userId} ${title} ${body} ${reactions} ${tags}`);
   };
 
   const deletePost = (postId) => {

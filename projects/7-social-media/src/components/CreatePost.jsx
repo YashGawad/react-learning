@@ -19,6 +19,12 @@ const CreatePost = () => {
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(" ");
 
+    userIdElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
+
     addPost(id, userId, postTitle, postBody, reactions, tags);
   };
 
@@ -88,6 +94,7 @@ const CreatePost = () => {
       <button type="submit" className="btn btn-primary">
         Post
       </button>
+      <button></button>
     </form>
   );
 };
