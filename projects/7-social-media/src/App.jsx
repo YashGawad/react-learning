@@ -10,6 +10,7 @@ import PostListProvider from "./components/store/post-list-store";
 
 function App() {
   const [page, setPage] = useState("Home");
+
   return (
     <PostListProvider>
       <div className="app-container">
