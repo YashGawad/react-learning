@@ -5,13 +5,13 @@ import { PostList as PostListData } from "./store/post-list-store";
 const PostList = () => {
   const { postList, addInitialPosts } = useContext(PostListData);
 
-  // useEffect(() => {
-  //   fetch("https://dummyjson.com/posts")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       addInitialPosts(data.posts);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://dummyjson.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPosts(data.posts);
+      });
+  }, []);
 
   return (
     <>
