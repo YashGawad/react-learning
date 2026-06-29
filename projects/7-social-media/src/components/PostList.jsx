@@ -19,7 +19,7 @@ const PostList = () => {
       });
     return () => {
       controller.abort();
-      console.log("Aborted");
+      console.log("Aborted")
     };
   }, []);
 
