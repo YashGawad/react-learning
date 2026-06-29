@@ -26,6 +26,7 @@ const CreatePost = () => {
     tagsElement.current.value = "";
 
     addPost(id, userId, postTitle, postBody, reactions, tags);
+    console.log(`Post added with id = ${id}, userId = ${userId}, title = ${postTitle}, body = ${postBody}, reactions = ${reactions}, tags = ${tags}`);
   };
 
   return (

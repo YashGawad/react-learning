@@ -14,11 +14,12 @@ const postListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId,
     );
-    console.log(`Delete popst = ${action.payload.postId}`);
+    console.log(`Delete post = ${action.payload.postId}`);
   } else if (action.type === "ADD_INITIAL_POSTS") {
     newPostList = action.payload.posts;
   } else if (action.type === "ADD_POST") {
-    newPostList = [action.payload, ...currPostList];
+    newPostList = [{id: action.payload.id, userId: action.payload.userId, title: action.payload.title, body: action.payload.body, reactions: action.payload.reactions, tags: action.payload.tags}, ...currPostList];
+    console.log(newPostList);
   }
   return newPostList;
 };

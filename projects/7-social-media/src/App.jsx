@@ -17,7 +17,7 @@ function App() {
         <Sidebar page={page} setPage={setPage}></Sidebar>
         <div className="content">
           <Header></Header>
-          {page === "Home" ? <PostList></PostList> : <CreatePost></CreatePost>}
+          {page === "Home" ? <PostList ></PostList> : <CreatePost></CreatePost>}
           <Footer></Footer>
         </div>
       </div>
