@@ -10,7 +10,7 @@ const CreatePost = () => {
   const reactionsElement = useRef();
   const tagsElement = useRef();
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
     const id = Date.now();
     const userId = userIdElement.current.value;
@@ -39,6 +39,7 @@ const CreatePost = () => {
           className="form-control"
           ref={postTitleElement}
           id="title"
+          name="title"
           placeholder="How are you feeling today ..."
         />
       </div>
@@ -51,6 +52,7 @@ const CreatePost = () => {
           className="form-control"
           ref={userIdElement}
           id="user-id"
+          name="user-id"
           placeholder="How are you feeling today ..."
         />
       </div>
@@ -64,6 +66,7 @@ const CreatePost = () => {
           ref={postBodyElement}
           className="form-control"
           id="body"
+          name="body"
           placeholder="Body of the post"
         />
       </div>
@@ -76,11 +79,12 @@ const CreatePost = () => {
           className="form-control"
           ref={tagsElement}
           id="tag"
+          name="tag"
           placeholder="Enter tags"
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="rections" className="form-label">
+        <label htmlFor="reaction" className="form-label">
           Reactions
         </label>
         <input
@@ -88,13 +92,13 @@ const CreatePost = () => {
           className="form-control"
           ref={reactionsElement}
           id="reaction"
+          name="reaction"
           placeholder="Enter no of reactions"
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" id="submit">
         Post
       </button>
-      <button></button>
     </form>
   );
 };

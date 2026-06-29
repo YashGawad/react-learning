@@ -9,12 +9,18 @@ const PostList = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://dummyjson.com/posts")
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch("https://dummyjson.com/posts", { signal })
       .then((res) => res.json())
       .then((data) => {
         addInitialPosts(data.posts);
         setLoading(false);
       });
+    return () => {
+      controller.abort();
+      console.log("Aborted");
+    };
   }, []);
 
   return (
@@ -25,9 +31,8 @@ const PostList = () => {
           <h1>There is no Post available</h1>
         </center>
       )}
-      {!loading && postList.map((post) => (
-        <Post key={post.id} post={post}></Post>
-      ))}
+      {!loading &&
+        postList.map((post) => <Post key={post.id} post={post}></Post>)}
     </>
   );
 };
