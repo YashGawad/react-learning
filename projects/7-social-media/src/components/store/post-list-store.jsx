@@ -18,8 +18,7 @@ const postListReducer = (currPostList, action) => {
   } else if (action.type === "ADD_INITIAL_POSTS") {
     newPostList = action.payload.posts;
   } else if (action.type === "ADD_POST") {
-    newPostList = [{id: action.payload.id, userId: action.payload.userId, title: action.payload.title, body: action.payload.body, reactions: action.payload.reactions, tags: action.payload.tags}, ...currPostList];
-    console.log(newPostList);
+    newPostList = [action.payload, ...currPostList];
   }
   return newPostList;
 };
@@ -27,17 +26,10 @@ const postListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
-  const addPost = (id, userId, title, body, reactions, tags) => {
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id,
-        userId,
-        title,
-        body,
-        reactions,
-        tags,
-      },
+      payload: post
     });
   };
 
