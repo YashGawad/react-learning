@@ -4,12 +4,14 @@ let CurrentTime = ()=> {
   const [time, setTime] = useState(new Date);
 
   useEffect(() => {
+    console.log("Effect");
     const intervalid = setInterval(() => {
       setTime(new Date)
     }, 1000)
 
   return () => {
     clearInterval(intervalid);
+    console.log("Component unmounted and interval cleared");
   }
   }, [])
 
