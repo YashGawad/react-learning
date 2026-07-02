@@ -1,10 +1,10 @@
 import { random } from "mathjs";
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState, useEffect } from "react";
 
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
-  addInitialPosts: () => {},
+  loading: false,
   deletePost: () => {},
 });
 
@@ -25,11 +25,26 @@ const postListReducer = (currPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPosts(data.posts);
+        setLoading(false);
+      });
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: post
+      payload: post,
     });
   };
 
@@ -56,7 +71,7 @@ const PostListProvider = ({ children }) => {
       value={{
         postList,
         addPost,
-        addInitialPosts,
+        loading,
         deletePost,
       }}
     >
