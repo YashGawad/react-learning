@@ -1,4 +1,4 @@
-const Sidebar = ({ page, setPage }) => {
+const Sidebar = () => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -23,13 +23,9 @@ const Sidebar = ({ page, setPage }) => {
       <hr />{" "}
       <ul className="nav nav-pills flex-column mb-auto">
         {" "}
-        <li className="nav-item" onClick={() => setPage("Home")}>
+        <li className="nav-item">
           {" "}
-          <a
-            href="#"
-            className={`nav-link text-white ${page === "Home" && "active"}`}
-            aria-current="page"
-          >
+          <a href="/" className="nav-link text-white" aria-current="page">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -42,12 +38,9 @@ const Sidebar = ({ page, setPage }) => {
             Home
           </a>{" "}
         </li>{" "}
-        <li onClick={() => setPage("Create Post")}>
+        <li>
           {" "}
-          <a
-            href="#"
-            className={`nav-link text-white ${page === "Create Post" && "active"}`}
-          >
+          <a href="/Create-Post" className="nav-link text-white">
             {" "}
             <svg
               className="bi pe-none me-2"
