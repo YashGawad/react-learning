@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   return (
     <>
-      <div>React + Redux</div>
+      <div>This is React + Redux</div>
     </>
   )
 }
